@@ -1,112 +1,114 @@
-# Kullanım Kılavuzu
+# Usage Guide
 
-Bu doküman, uygulamadaki her alanın ne işe yaradığını ve nasıl
-doldurulacağını anlatır.
+This document explains what every field in the app does and how to fill
+it in.
 
-## 1. Discord Application ID nasıl alınır
+## 1. Getting a Discord Application ID
 
-Programın çalışması için önce Discord'un geliştirici panelinde kendi
-"uygulamanı" oluşturman gerekiyor (ücretsiz, 2 dakika sürer).
+Before the app can do anything, you need to create your own "application"
+in Discord's developer portal (free, takes about 2 minutes).
 
-1. https://discord.com/developers/applications adresine git, Discord hesabınla giriş yap
-2. Sağ üstten **New Application** butonuna bas
-3. Uygulamaya bir isim ver — bu isim, Discord profilinde
-   **"Playing `<isim>`"** yazısında görünecek isimdir (istediğin gibi
-   değiştirebilirsin, örn. "maximmax42.ru")
-4. Oluşturduktan sonra açılan **General Information** sayfasında
-   **APPLICATION ID** yazan yerdeki uzun sayıyı kopyala
-5. Programdaki **Application ID** kutusuna bu sayıyı yapıştır
+1. Go to https://discord.com/developers/applications and log in with your
+   Discord account
+2. Click **New Application** in the top right
+3. Give it a name — this is exactly what will show up in Discord as
+   **"Playing `<name>`"** (you can pick anything, e.g. "maximmax42.ru")
+4. On the **General Information** page that opens, copy the long number
+   next to **APPLICATION ID**
+5. Paste that number into the **Application ID** field in the app
 
-Bu ID, programın "hangi kimlikle" Discord'a bağlanacağını belirler. Herkese
-açık paylaşılabilir, gizli bir bilgi değildir.
+This ID is just an identifier for which Discord app you're connecting as.
+It's fine to share it publicly — it's not a secret.
 
-## 2. Type (aktivite tipi)
+## 2. Type (activity type)
 
-Discord profilinde durumun nasıl başlayacağını belirler:
+Controls how your status is phrased in Discord:
 
-| Seçim | Discord'da görünüm |
+| Choice | Shows up as |
 |---|---|
-| Playing | "Oynuyor: ..." |
-| Listening | "Dinliyor: ..." |
-| Watching | "İzliyor: ..." |
-| Competing | "Yarışıyor: ..." |
+| Playing | "Playing ..." |
+| Listening | "Listening to ..." |
+| Watching | "Watching ..." |
+| Competing | "Competing in ..." |
 
 ## 3. Details / State
 
-Bunlar Discord profilinde görünen iki satırlık metin. Details üstte, State
-altta çıkar.
+These are the two lines of text shown on your Discord profile. Details is
+the top line, State is the line below it.
 
-Her ikisinin yanındaki **URL** kutusu isteğe bağlıdır — doldurursan, o
-satırın yazısı Discord'da tıklanabilir bir link olur. Boş bırakırsan sadece
-düz yazı olarak görünür.
+The **URL** box next to each one is optional — fill it in and that line
+becomes a clickable link in Discord. Leave it empty and it's just plain
+text.
 
-İçlerine `{time}` yazarsan güncel saatle, `{date}` yazarsan güncel tarihle
-otomatik değiştirilir (her 15 saniyede bir program bunu tazeler).
+You can type `{time}` or `{date}` anywhere in these fields and they'll be
+swapped for the current time/date automatically (refreshed every 15
+seconds).
 
-## 4. Large Image / Small Image — en çok karıştırılan kısım
+## 4. Large Image / Small Image — the part people get stuck on
 
-Bu bölümde üç kutu var, her birinin görevi farklı:
+There are three boxes here, each doing something different:
 
-- **Key**: Gösterilecek resmin kendisi. İki şekilde doldurabilirsin:
-  - **En kolay yol:** Doğrudan bir görsel linki yapıştır, örn:
-    `https://i.imgur.com/xxxxx.png` (imgur, kendi sitendeki bir görsel,
-    her yerden olabilir — sadece linkin sonunun `.png`/`.jpg`/`.gif` gibi
-    bir görsele çıkması yeterli)
-  - **Alternatif yol:** Discord Developer Portal'da uygulamanın
-    **Rich Presence → Art Assets** sekmesine görsel yükleyip, o görsele
-    verdiğin ismi (key) buraya yaz
-- **Text**: Kullanıcı fareyle o resmin üzerine gelince çıkan küçük yazı
-  (tooltip). Zorunlu değil.
-- **URL**: Kullanıcı o resme **tıklarsa** açılacak link. Zorunlu değil, boş
-  bırakılabilir — o zaman resim sadece görsel olarak durur, tıklanamaz.
+- **Key**: the actual image to display. Two ways to fill this in:
+  - **Easiest:** paste a direct image link, e.g.
+    `https://i.imgur.com/xxxxx.png` (imgur, your own site, anywhere works —
+    as long as the link points straight to an image file, not a webpage)
+  - **Alternative:** upload an image under your app's **Rich Presence →
+    Art Assets** tab in the Developer Portal, then type the name (key) you
+    gave it here
+- **Text**: a small tooltip that appears when someone hovers over the
+  image. Optional.
+- **URL**: where clicking the image takes you. Optional — leave it blank
+  and the image just sits there, not clickable.
 
-Yani "URL kısmına ne yazayım" sorusunun cevabı: **eğer resme tıklandığında
-bir siteye gitmesini istemiyorsan, boş bırak.** Resmin kendisini Key
-kutusuna yazman yeterli.
+So if you're wondering what to put in the URL box: **if you don't want
+clicking the image to open a link, leave it empty.** The image itself only
+needs the Key field filled in.
 
 ## 5. Party
 
-"6 / 9 kişi" gibi bir grup göstergesi eklemek istersen "Show party" kutusunu
-işaretle, iki sayıyı gir. Gerçek bir oyun sunucusuna bağlanma/davet
-özelliği yoktur, sadece görsel bir sayaçtır.
+Check "Show party" and enter two numbers if you want a "6 of 9" style
+group indicator. There's no actual join/invite mechanism behind it — it's
+purely cosmetic.
 
-## 6. Timestamp (zaman damgası)
+## 6. Timestamp
 
-Discord'da durumun yanında "X dakikadır" gibi bir sayaç göstermek
-istiyorsan seçeneklerden birini seç:
+If you want a running "X minutes" counter next to your status, pick one of:
 
-- **Since last connection**: Connect'e bastığın andan itibaren sayar
-- **Since last presence update**: Update Presence'a en son bastığın andan itibaren sayar
-- **Since program started**: Programı açtığın andan itibaren sayar
-- **Your local time**: Sayaç göstermez, sadece Details/State'teki `{time}` gibi yer tutucular çalışır
-- **Custom start/end timestamp**: Kendi belirlediğin tarih/saat aralığını kullanır (`YYYY-MM-DD HH:MM:SS` formatında)
-- **No timestamp**: Hiçbir zaman bilgisi gösterilmez
+- **Since last connection**: counts from the moment you hit Connect
+- **Since last presence update**: counts from your last Update Presence click
+- **Since program started**: counts from when you launched the app
+- **Your local time**: no counter, only `{time}`-style placeholders work
+- **Custom start/end timestamp**: set your own date/time range
+  (`YYYY-MM-DD HH:MM:SS` format)
+- **No timestamp**: no time info shown at all
 
 ## 7. Button 1 / Button 2
 
-Discord profilinde durumun altında tıklanabilir buton(lar) gösterir.
-**Label** butonun üzerindeki yazı, **URL** tıklanınca açılacak adres.
-İkisi de doluysa buton görünür; biri boşsa o buton hiç gösterilmez.
+Adds clickable buttons under your status on Discord. **Label** is the text
+on the button, **URL** is where it goes. Both fields need to be filled in
+for the button to appear; if either is empty, that button is skipped
+entirely.
 
 ## 8. Connect / Disconnect / Update Presence
 
-1. **Connect**'e bas — program Discord masaüstü istemcisine bağlanır
-   (Discord'un açık ve çalışıyor olması gerekir)
-2. Alanları doldur
-3. **Update Presence**'a bas — Discord profilindeki durumun anında güncellenir
-4. "Auto-refresh every 15s" işaretliyse, alanlarını her değiştirdiğinde
-   tekrar Update Presence'a basmana gerek kalmaz, program otomatik tazeler
-5. Bitirince **Disconnect**'e bas, durumun Discord'dan kalkar
+1. Click **Connect** — the app connects to your running Discord desktop
+   client
+2. Fill in the fields
+3. Click **Update Presence** — your Discord status updates immediately
+4. With "Auto-refresh every 15s" checked, you don't need to click Update
+   Presence again after every change — it refreshes on its own
+5. Click **Disconnect** when you're done, and your status clears from
+   Discord
 
-## Sık karşılaşılan durumlar
+## Common issues
 
-**"Resim görünmüyor"** → Key kutusuna yazdığın link gerçekten bir görsele
-mi çıkıyor kontrol et (linki tarayıcıda aç, direkt resim açılmalı, bir web
-sayfası değil). Ayrıca Discord istemcisini bir kere kapatıp açmak bazen
-görselin önbellekten güncellenmesini sağlar.
+**"My image isn't showing up"** — check that the link you put in Key
+actually points to an image (open it in your browser, it should load the
+image directly, not a webpage). Restarting the Discord client sometimes
+helps refresh a cached image too.
 
-**"URL'ye tıklayınca bir şey olmuyor"** → URL kutusunu boş bıraktıysan bu
-normal, resim/yazı tıklanabilir olmaz.
+**"Nothing happens when I click the URL"** — if the URL box is empty,
+that's expected, the image/text won't be clickable.
 
-**"Update Presence'a basınca hata veriyor"** → Discord masaüstü uygulamasının
-açık olduğundan emin ol; kapalıysa program bağlanamaz.
+**"Update Presence throws an error"** — make sure the Discord desktop app
+is actually open; the app can't connect if it's closed.

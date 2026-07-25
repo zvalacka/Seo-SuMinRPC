@@ -1,34 +1,33 @@
-# Seo SuMinRPC
+# Seo-SuMinRPC
 
-Linux masaüstünde çalışan, GTK3 tabanlı bir Discord Rich Presence
-düzenleyicisi. `pypresence` kütüphanesi üzerinden Discord'un yerel IPC
-soketiyle (`$XDG_RUNTIME_DIR/discord-ipc-0`) konuşur, Details/State,
-resimler, buton ve zaman damgası gibi her şeyi arayüzden ayarlamana izin
-verir.
+A native Linux GUI app for setting a fully custom Discord Rich Presence
+status, built with GTK3 and `pypresence`. It talks to Discord's local IPC
+socket (`$XDG_RUNTIME_DIR/discord-ipc-0`) directly, no game required.
 
-> Bu proje Discord Inc. ile bağlantılı değildir, resmi bir Discord ürünü
-> değildir.
+> This project is not affiliated with Discord Inc. and is not an official
+> Discord product.
 
-## Özellikler
+## Features
 
-- Details / State alanları ve tıklanabilir URL'ler
-- Playing / Listening / Watching / Competing aktivite tipleri
-- Büyük ve küçük resim (asset key **veya** doğrudan görsel URL'si) + tıklanabilir linkler
-- Parti boyutu gösterimi (ör. `6 / 9`)
-- 6 farklı zaman damgası modu: son bağlantıdan beri, son güncellemeden beri,
-  program başladığından beri, yerel saat, özel başlangıç/bitiş, veya hiçbiri
-- `{time}` ve `{date}` yer tutucuları (Details/State içinde kullanılırsa her
-  güncellemede güncel saat/tarihle değiştirilir)
-- İki adet tıklanabilir buton (etiket + URL)
-- Connect / Disconnect / Update Presence ve otomatik yenileme (15 sn)
-- Ayarları `~/.config/seosuminrpc/config.json` içine kaydeder, önceden
-  hazırlanmış presetleri dosya olarak kaydedip yükleyebilirsiniz
+- Details / State fields with optional clickable URLs
+- Playing / Listening / Watching / Competing activity types
+- Large and small images (asset key **or** a direct image URL) with
+  clickable links
+- Party size display (e.g. `6 / 9`)
+- 6 timestamp modes: since last connection, since last presence update,
+  since the app started, your local time, a custom start/end range, or none
+- `{time}` and `{date}` placeholders (used in Details/State, refreshed on
+  every update)
+- Two clickable buttons (label + URL)
+- Connect / Disconnect / Update Presence, plus automatic refresh (every 15s)
+- Saves your settings to `~/.config/seosuminrpc/config.json`, and lets you
+  save/load presets as files
 
-## Kurulum
+## Installation
 
-### 1. Sistem bağımlılıkları (GTK3 + PyGObject)
+### 1. System dependencies (GTK3 + PyGObject)
 
-Debian/Ubuntu ve türevleri:
+Debian/Ubuntu and derivatives:
 ```bash
 sudo apt install python3-gi gir1.2-gtk-3.0 python3-pip
 ```
@@ -43,36 +42,36 @@ Arch:
 sudo pacman -S python-gobject gtk3 python-pip
 ```
 
-### 2. Python bağımlılığı
+### 2. Python dependency
 
 ```bash
 pip install --break-system-packages -r requirements.txt
 ```
-(veya bir sanal ortam içinde `pip install -r requirements.txt`)
+(or inside a virtual environment: `pip install -r requirements.txt`)
 
-### 3. Çalıştırma
+### 3. Run it
 
 ```bash
 python3 seosuminrpc.py
 ```
 
-## Kullanım
+## Usage
 
-Her alanın ne işe yaradığını (özellikle Large/Small Image, URL kutuları ve
-Timestamp seçenekleri) merak ediyorsan [USAGE.md](USAGE.md) dosyasına bak.
+For a full explanation of every field (especially the Large/Small Image
+keys, the URL boxes, and the Timestamp modes), see [USAGE.md](USAGE.md).
 
-## Discord Application ID nasıl alınır?
+## Getting a Discord Application ID
 
-1. https://discord.com/developers/applications adresine git
-2. **New Application** ile bir uygulama oluştur (adı, Discord profilinde
-   "Playing **<isim>**" kısmında görünecek isimdir)
-3. **General Information** sayfasındaki **Application ID**'yi kopyala ve
-   programdaki **Application ID** kutusuna yapıştır
-4. Büyük/küçük resim için Discord Developer Portal'daki **Rich Presence →
-   Art Assets** kısmına görsel yükleyip o görsele verdiğin ismi (key) "Key"
-   alanına yazabilirsin — veya doğrudan bir görsel URL'si de girebilirsin.
+1. Go to https://discord.com/developers/applications
+2. Click **New Application** and give it a name (this name is what shows up
+   in Discord as **"Playing `<name>`"**)
+3. Copy the **Application ID** from the **General Information** page and
+   paste it into the app's **Application ID** field
+4. For images, either upload art to **Rich Presence → Art Assets** in the
+   Developer Portal and use that asset's key, or just paste a direct image
+   URL straight into the **Key** field.
 
-## Masaüstü menüsüne ekleme (isteğe bağlı)
+## Adding it to your app menu (optional)
 
 ```bash
 chmod +x seosuminrpc.py
@@ -86,15 +85,16 @@ gtk-update-icon-cache ~/.local/share/icons/hicolor 2>/dev/null
 cp seosuminrpc.desktop ~/.local/share/applications/
 ```
 
-## Bilinen sınırlamalar
+## Known limitations
 
-- "Name" alanı (görünen uygulama adını override etme) Discord tarafında
-  yalnızca belirli onaylı uygulamalarda çalışır; her koşulda garanti değildir.
-- Parti/Join/Spectate özellikleri sadece kozmetik gösterim sağlar; gerçek
-  bir oyun sunucusuna bağlanma/davet mekanizması içermez.
-- Discord masaüstü istemcisinin açık ve çalışıyor olması gerekir (web/mobil
-  Discord üzerinden Rich Presence görünmez).
+- The "Name" field (overriding the displayed app name) only works for
+  certain approved Discord applications; it's not guaranteed to work
+  everywhere.
+- Party/Join/Spectate are cosmetic only — there's no real game server
+  join/invite mechanism behind them.
+- The Discord desktop client must be open and running (Rich Presence
+  doesn't show through the web or mobile clients).
 
-## Lisans
+## License
 
-MIT — `LICENSE` dosyasına bakın.
+MIT — see `LICENSE`.
