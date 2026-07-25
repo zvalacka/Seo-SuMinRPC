@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Seo SuMinRPC
+Comment=Set a custom Discord Rich Presence status
+Exec=seosuminrpc
+Icon=seosuminrpc
+Terminal=false
+Categories=Utility;Network;
