@@ -1,6 +1,5 @@
-<img width="900" height="600" alt="Adsız tasarım" src="https://github.com/user-attachments/assets/4b0db7d1-aa26-4ce7-9576-5495f13d3404" />
 # Seo-SuMinRPC
-
+<img width="900" height="600" alt="App preview" src="https://github.com/user-attachments/assets/4b0db7d1-aa26-4ce7-9576-5495f13d3404" />
 A native Linux GUI app for setting a fully custom Discord Rich Presence
 status, built with GTK3 and `pypresence`. It talks to Discord's local IPC
 socket (`$XDG_RUNTIME_DIR/discord-ipc-0`) directly, no game required.
