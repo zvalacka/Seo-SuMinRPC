@@ -77,11 +77,6 @@ keys, the URL boxes, and the Timestamp modes), see [USAGE.md](USAGE.md).
 chmod +x seosuminrpc.py
 mkdir -p ~/.local/bin
 ln -s "$(pwd)/seosuminrpc.py" ~/.local/bin/seosuminrpc
-
-mkdir -p ~/.local/share/icons/hicolor/256x256/apps
-cp assets/icon.png ~/.local/share/icons/hicolor/256x256/apps/seosuminrpc.png
-gtk-update-icon-cache ~/.local/share/icons/hicolor 2>/dev/null
-
 cp seosuminrpc.desktop ~/.local/share/applications/
 ```
 

@@ -54,27 +54,12 @@ def now_ts():
     return int(time.time())
 
 
-def find_icon():
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    for candidate in (
-        os.path.join(script_dir, "assets", "icon.png"),
-        os.path.join(script_dir, "icon.png"),
-    ):
-        if os.path.exists(candidate):
-            return candidate
-    return None
-
-
 class SeoSuMinRPCWindow(Gtk.Window):
     def __init__(self):
         super().__init__(title=APP_NAME)
         self.set_default_size(560, 640)
         self.set_border_width(10)
         self.connect("destroy", self.on_quit)
-
-        icon_path = find_icon()
-        if icon_path:
-            self.set_icon_from_file(icon_path)
 
         self.entries = {}
         self.combos = {}
@@ -515,10 +500,6 @@ class SeoSuMinRPCWindow(Gtk.Window):
         dialog.set_version(APP_VERSION)
         dialog.set_comments("Set a fully custom Discord Rich Presence status without running a game.")
         dialog.set_website("https://github.com/")
-        icon_path = find_icon()
-        if icon_path:
-            from gi.repository import GdkPixbuf
-            dialog.set_logo(GdkPixbuf.Pixbuf.new_from_file(icon_path))
         dialog.run()
         dialog.destroy()
 
