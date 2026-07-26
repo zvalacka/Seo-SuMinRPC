@@ -25,35 +25,63 @@ socket (`$XDG_RUNTIME_DIR/discord-ipc-0`) directly, no game required.
 
 ## Installation
 
-### 1. System dependencies (GTK3 + PyGObject)
+This section assumes no prior experience with Git or the command line —
+just copy each command exactly as shown.
 
-Debian/Ubuntu and derivatives:
+### Step 1: Get the code onto your computer
+
+Open a terminal and run:
+
 ```bash
-sudo apt install python3-gi gir1.2-gtk-3.0 python3-pip
+git clone https://github.com/zvalacka/Seo-SuMinRPC.git
+cd Seo-SuMinRPC
 ```
 
-Fedora:
+This downloads the project into a new folder called `Seo-SuMinRPC` and
+moves you into it. If you don't have `git` installed yet, install it
+first:
+
 ```bash
+# Arch / CachyOS / Manjaro
+sudo pacman -S git
+
+# Debian / Ubuntu
+sudo apt install git
+
+# Fedora
+sudo dnf install git
+```
+
+then run the `git clone` command above again.
+
+### Step 2: Install the system dependencies (GTK3 + PyGObject)
+
+Pick the command matching your distro:
+
+```bash
+# Arch / CachyOS / Manjaro
+sudo pacman -S python-gobject gtk3 python-pip
+
+# Debian / Ubuntu
+sudo apt install python3-gi gir1.2-gtk-3.0 python3-pip
+
+# Fedora
 sudo dnf install python3-gobject gtk3 python3-pip
 ```
 
-Arch:
-```bash
-sudo pacman -S python-gobject gtk3 python-pip
-```
-
-### 2. Python dependency
+### Step 3: Install the Python dependency
 
 ```bash
 pip install --break-system-packages -r requirements.txt
 ```
-(or inside a virtual environment: `pip install -r requirements.txt`)
 
-### 3. Run it
+### Step 4: Run it
 
 ```bash
 python3 seosuminrpc.py
 ```
+
+A window should open. That's it — you're running the app.
 
 ## Usage
 
