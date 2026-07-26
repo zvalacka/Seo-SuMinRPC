@@ -1,3 +1,4 @@
+<img width="900" height="600" alt="Adsız tasarım" src="https://github.com/user-attachments/assets/4b0db7d1-aa26-4ce7-9576-5495f13d3404" />
 # Seo-SuMinRPC
 
 A native Linux GUI app for setting a fully custom Discord Rich Presence
