@@ -1,5 +1,3 @@
-<img width="365" height="562" alt="a" src="https://github.com/user-attachments/assets/2b8542a0-bd44-43f4-b42d-46047c1ab9b5" />
-<img width="757" height="885" alt="b" src="https://github.com/user-attachments/assets/69a9836d-dd81-44d2-b101-764aa1ecf860" />
 # Seo-SuMinRPC
 
 A native Linux GUI app for setting a fully custom Discord Rich Presence
